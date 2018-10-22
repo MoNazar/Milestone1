@@ -1,0 +1,89 @@
+#include <iostream>
+#include <stdlib.h>
+#include <vector>
+
+using namespace std;
+
+// Functions 
+
+auto createarray(int dim1 = 0, int dim2 = 0) {
+	int A1[30][30] = { 0 };
+	for (dim1 = 0; dim1 < 30; dim1++) {
+		for (dim2 = 0; dim2 < 30; dim2++) {
+			A1[dim1][dim2] = rand() % 10;
+			printf("%d ", A1[dim1][dim2]);
+		}
+	}
+}
+// static variable 
+int const constexpr static Size = 30;
+
+// main programm 
+
+int main() {
+	// Aufgabe 1, a)
+	// static 2-dimensional Array A1
+	int A1[30][30] = { 0 };
+	// dynamic 1-dimensional Array A2
+	int *A2 = new int[Size*Size];
+
+	int column, row;
+	for (column = 0; column < 30; column++) {
+		for (row = 0; row < 30; row++) {
+			A1[column][row] = rand() % 10;
+			//cout << A1[column][row] << ' ';
+			printf("%d ", A1[column][row]);
+			// calculating the index of dynamic Array A2
+			int index = column * Size + row;
+			A2[index] = A1[column][row]; // copying content of A1 into A2
+		}
+		printf("\n");
+	}
+	// output Array A2 (after copying the data from A1)
+	printf("\n");
+	int h;
+	for (h = 0; h < Size*Size; h++) {
+		printf("%i ", A2[h]);
+	}
+	printf("\n");
+
+	// Aufgabe 1, b)
+	/* Aktionen aus aufgabe 1.a definieren.
+	   Aktion_1 : Create2dimArray A1
+	   Aktion_2 : Create1dimArray A2
+	   Aktion_3 : Copy
+	   Aktion_4 : Show2dimArray
+	   Aktion_5 : Show1dimArray
+	   Aktion_6 : Exit function */
+
+	// Aufgabe 1, c) 
+	/* Klasse für einen Zellulären Automaten erstellen
+	-----------Regeln&Anforderrurngen Für Conways Game of Life --------------
+	Anforderrungen: 
+	Feldgröße : 30x30 (Eingabe durch Benutzer)
+	Zustand der Zellen : (lebend, tod) 
+	Zustandübergang der Zellen : (lebend->tod, tod->lebend)
+	Aktion : Evolution für einen Zeitschritt durchführen
+	
+	Regeln: 
+	n = Anzahl der Nachbarn von Zelle 
+	 Tod durch Vereinsamung(wenn n < 2)
+	 Tod durch Verhungern(wenn n > 3)
+	 Überleben(wenn n = 2 oder n = 3)
+	 Geburt(wenn bei einer toten Zelle gilt: n = 3)
+	 */
+
+	// Aufgabe 1, d)
+	/* Zustand des Zellulären Automaten importieren aus:
+	   beispieldatei_cellularautomation.txt*/
+
+	// Aufgabe 1, e) 
+	/* Aktion: Zustandsübergang 
+	*/
+	createarray();
+	system("Pause");
+	return 0;
+
+
+};
+
