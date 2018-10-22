@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Functions 
+// Functions are great
 
 auto createarray(int dim1 = 0, int dim2 = 0) {
 	int A1[30][30] = { 0 };
