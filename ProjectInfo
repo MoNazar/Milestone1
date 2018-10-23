@@ -3,8 +3,45 @@
 #include <vector>
 
 using namespace std;
+// static variable 
+int const constexpr static Size = 30;
+// Functions are great
 
-// Functions 
+auto create2dimarray(int dim1 = 0, int dim2 = 0) {
+	int A3[30][30] = { 0 };
+	for (dim1 = 0; dim1 < 30; dim1++) {
+		for (dim2 = 0; dim2 < 30; dim2++) {
+			A3[dim1][dim2] = rand() % 10;
+			printf("%d ", A3[dim1][dim2]);
+		}
+		printf("\n");
+	}
+}
+
+auto create1dimarray(int Size) {
+	int *A4 = new int[Size*Size];
+	for (int i = 0; i < Size*Size; i++) {
+		A4[i] = rand() % 10; 
+		printf("%d ", A4[i]);
+	}
+	/* FRAGE! wie kann ich A3 so setzen, dass es in der Funktion 
+	create1dimarray bekannt ist*/
+}
+
+auto copy(void) {
+	int u, l;
+	for (u = 0; u < 30; u++) {
+		for (l = 0; l < 30; l++) {
+			int index = u * Size + l;
+			/*A4[index] = A3[u][l];*/
+		}
+	}
+}
+
+auto exit(void) {
+	return 0;
+}
+
 
 auto createarray(int dim1 = 0, int dim2 = 0) {
 	int A1[30][30] = { 0 };
@@ -15,9 +52,6 @@ auto createarray(int dim1 = 0, int dim2 = 0) {
 		}
 	}
 }
-// static variable 
-int const constexpr static Size = 30;
-
 // main programm 
 
 int main() {
